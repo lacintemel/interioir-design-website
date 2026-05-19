@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/ui/PageTransition";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -21,15 +22,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Elena Voss | Interior Design Studio",
+  title: "By Tufan Design | Interior Architecture Studio",
   description:
-    "Crafting timeless, elegant interiors that blend luxury with functionality. Award-winning interior design studio based in New York.",
+    "Crafting timeless, elegant interiors that blend luxury with functionality. Interior architecture studio by Melek Tufan, based in Türkiye, Antalya.",
   keywords: [
     "interior design",
+    "interior architecture",
     "luxury interiors",
     "residential design",
     "commercial design",
-    "architectural interiors",
+    "By Tufan Design",
+    "Melek Tufan",
+    "Antalya",
   ],
 };
 
@@ -41,13 +45,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-cream text-wood-dark antialiased">
-        <SmoothScroll>
-          <Header />
-          <PageTransition>
-            <main>{children}</main>
-          </PageTransition>
-          <Footer />
-        </SmoothScroll>
+        <LanguageProvider>
+          <SmoothScroll>
+            <Header />
+            <PageTransition>
+              <main>{children}</main>
+            </PageTransition>
+            <Footer />
+          </SmoothScroll>
+        </LanguageProvider>
       </body>
     </html>
   );

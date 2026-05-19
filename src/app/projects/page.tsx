@@ -4,14 +4,21 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/data/projects";
-
-const categories = ["All", "Residential", "Commercial", "Hospitality"];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ProjectsPage() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  const categories = [
+    { key: "All", label: t("portfolio.all") },
+    { key: "Residential", label: t("portfolio.residential") },
+    { key: "Commercial", label: t("portfolio.commercial") },
+    { key: "Hospitality", label: t("portfolio.hospitality") },
+  ];
 
   const filteredProjects =
     activeCategory === "All"
@@ -31,17 +38,16 @@ export default function ProjectsPage() {
           >
             <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-gold mb-6">
               <span className="w-12 h-px bg-gold" />
-              Our Work
+              {t("projects.ourWork")}
               <span className="w-12 h-px bg-gold" />
             </span>
 
             <h1 className="font-(--font-serif) text-5xl md:text-6xl lg:text-7xl text-cream mb-6">
-              Portfolio
+              {t("projects.portfolio")}
             </h1>
 
             <p className="text-beige max-w-2xl mx-auto text-lg">
-              Explore our complete collection of residential, commercial, and
-              hospitality design projects.
+              {t("projects.explore")}
             </p>
           </motion.div>
         </div>
@@ -59,16 +65,16 @@ export default function ProjectsPage() {
           >
             {categories.map((category) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
+                key={category.key}
+                onClick={() => setActiveCategory(category.key)}
                 className={`relative px-6 py-3 text-sm tracking-wide transition-colors duration-300 ${
-                  activeCategory === category
+                  activeCategory === category.key
                     ? "text-wood-dark"
                     : "text-taupe hover:text-brown-warm"
                 }`}
               >
-                {category}
-                {activeCategory === category && (
+                {category.label}
+                {activeCategory === category.key && (
                   <motion.div
                     layoutId="activeFilterPage"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold"
@@ -85,8 +91,8 @@ export default function ProjectsPage() {
             animate={{ opacity: 1 }}
             className="text-center text-taupe text-sm mb-12"
           >
-            Showing {filteredProjects.length} project
-            {filteredProjects.length !== 1 ? "s" : ""}
+            {t("projects.showing")} {filteredProjects.length}{" "}
+            {filteredProjects.length !== 1 ? t("projects.projects") : t("projects.project")}
           </motion.p>
 
           {/* Grid */}
@@ -111,7 +117,7 @@ export default function ProjectsPage() {
                     href={`/projects/${project.slug}`}
                     className="group block"
                   >
-                    <div className="relative overflow-hidden aspect-16/10 mb-6">
+                    <div className="relative overflow-hidden aspect-[16/10] mb-6">
                       <motion.img
                         src={project.heroImage}
                         alt={project.title}
@@ -142,7 +148,7 @@ export default function ProjectsPage() {
                         className="absolute inset-0 flex items-center justify-center"
                       >
                         <span className="px-6 py-3 bg-cream text-wood-dark text-sm uppercase tracking-wider">
-                          View Project
+                          {t("portfolio.viewProject")}
                         </span>
                       </motion.div>
 
@@ -209,14 +215,13 @@ export default function ProjectsPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-(--font-serif) text-3xl md:text-4xl text-wood-dark mb-4">
-              Ready to Start Your Project?
+              {t("projects.readyToStart")}
             </h2>
             <p className="text-brown-soft mb-8 max-w-xl mx-auto">
-              Let's discuss how we can transform your space into something
-              extraordinary.
+              {t("projects.letsDiscuss")}
             </p>
             <Link href="/#contact" className="btn-primary inline-flex">
-              <span>Get In Touch</span>
+              <span>{t("projects.getInTouch")}</span>
               <svg
                 className="w-4 h-4"
                 fill="none"
