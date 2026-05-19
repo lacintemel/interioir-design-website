@@ -20,7 +20,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.8 }}
-      className="border-t border-[var(--color-beige)]"
+      className="border-t border-beige"
     >
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Previous Project */}
@@ -38,14 +38,14 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               />
-              <div className="absolute inset-0 bg-[var(--color-espresso)]/60 group-hover:bg-[var(--color-espresso)]/70 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-espresso/60 group-hover:bg-espresso/70 transition-colors duration-500" />
             </div>
 
             <div className="relative p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex flex-col justify-center">
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
                 whileHover={{ x: 0, opacity: 1 }}
-                className="flex items-center gap-2 text-[var(--color-gold)] mb-4"
+                className="flex items-center gap-2 text-gold mb-4"
               >
                 <svg
                   className="w-5 h-5"
@@ -65,18 +65,18 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
                 </span>
               </motion.div>
 
-              <h3 className="font-[var(--font-serif)] text-2xl md:text-3xl lg:text-4xl text-[var(--color-cream)] mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+              <h3 className="font-(--font-serif) text-2xl md:text-3xl lg:text-4xl text-cream mb-2 group-hover:text-gold transition-colors duration-300">
                 {prev.title}
               </h3>
 
-              <p className="text-[var(--color-beige)] text-sm">
+              <p className="text-beige text-sm">
                 {prev.category} · {prev.location}
               </p>
             </div>
           </Link>
         ) : (
-          <div className="bg-[var(--color-cream-light)] p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex items-center justify-center">
-            <p className="text-[var(--color-taupe)] text-sm">
+          <div className="bg-cream-light p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex items-center justify-center">
+            <p className="text-taupe text-sm">
               This is the first project
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
         {next ? (
           <Link
             href={`/projects/${next.slug}`}
-            className="group relative overflow-hidden border-t md:border-t-0 md:border-l border-[var(--color-beige)]"
+            className="group relative overflow-hidden border-t md:border-t-0 md:border-l border-beige"
           >
             <div className="absolute inset-0">
               <motion.img
@@ -97,14 +97,14 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               />
-              <div className="absolute inset-0 bg-[var(--color-espresso)]/60 group-hover:bg-[var(--color-espresso)]/70 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-espresso/60 group-hover:bg-espresso/70 transition-colors duration-500" />
             </div>
 
             <div className="relative p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex flex-col justify-center items-end text-right">
               <motion.div
                 initial={{ x: 20, opacity: 0 }}
                 whileHover={{ x: 0, opacity: 1 }}
-                className="flex items-center gap-2 text-[var(--color-gold)] mb-4"
+                className="flex items-center gap-2 text-gold mb-4"
               >
                 <span className="text-xs uppercase tracking-[0.2em]">
                   Next Project
@@ -124,18 +124,18 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
                 </svg>
               </motion.div>
 
-              <h3 className="font-[var(--font-serif)] text-2xl md:text-3xl lg:text-4xl text-[var(--color-cream)] mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+              <h3 className="font-(--font-serif) text-2xl md:text-3xl lg:text-4xl text-cream mb-2 group-hover:text-gold transition-colors duration-300">
                 {next.title}
               </h3>
 
-              <p className="text-[var(--color-beige)] text-sm">
+              <p className="text-beige text-sm">
                 {next.category} · {next.location}
               </p>
             </div>
           </Link>
         ) : (
-          <div className="bg-[var(--color-cream-light)] p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex items-center justify-center border-t md:border-t-0 md:border-l border-[var(--color-beige)]">
-            <p className="text-[var(--color-taupe)] text-sm">
+          <div className="bg-cream-light p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex items-center justify-center border-t md:border-t-0 md:border-l border-beige">
+            <p className="text-taupe text-sm">
               This is the last project
             </p>
           </div>
@@ -143,10 +143,10 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
       </div>
 
       {/* Back to All Projects */}
-      <div className="border-t border-[var(--color-beige)] py-8 text-center">
+      <div className="border-t border-beige py-8 text-center">
         <Link
           href="/#portfolio"
-          className="inline-flex items-center gap-3 text-[var(--color-brown-warm)] hover:text-[var(--color-gold)] transition-colors group"
+          className="inline-flex items-center gap-3 text-brown-warm hover:text-gold transition-colors group"
         >
           <svg
             className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform"

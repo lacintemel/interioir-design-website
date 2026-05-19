@@ -68,7 +68,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative w-full aspect-[16/9] overflow-hidden cursor-ew-resize select-none"
+      className="relative w-full aspect-16/9 overflow-hidden cursor-ew-resize select-none"
       onMouseDown={handleMouseDown}
       onTouchStart={handleMouseDown}
     >
@@ -97,7 +97,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
 
       {/* Slider Line */}
       <motion.div
-        className="absolute top-0 bottom-0 w-[2px] bg-white shadow-lg"
+        className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg"
         style={{ left: `${sliderPosition}%` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -107,7 +107,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
           <div className="flex items-center gap-1">
             <svg
-              className="w-4 h-4 text-[var(--color-wood-dark)]"
+              className="w-4 h-4 text-wood-dark"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
               />
             </svg>
             <svg
-              className="w-4 h-4 text-[var(--color-wood-dark)]"
+              className="w-4 h-4 text-wood-dark"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -143,7 +143,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-wood-dark)] font-medium">
+        <span className="text-xs uppercase tracking-[0.2em] text-wood-dark font-medium">
           Before
         </span>
       </motion.div>
@@ -154,7 +154,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-wood-dark)] font-medium">
+        <span className="text-xs uppercase tracking-[0.2em] text-wood-dark font-medium">
           After
         </span>
       </motion.div>
@@ -166,7 +166,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
         animate={{ opacity: isDragging ? 0 : 1, y: isDragging ? 10 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        <span className="text-xs text-[var(--color-taupe)]">
+        <span className="text-xs text-taupe">
           Drag to compare
         </span>
       </motion.div>
