@@ -26,10 +26,10 @@ export default function About() {
     <section
       ref={containerRef}
       id="about"
-      className="section-spacing bg-[var(--color-cream)] relative overflow-hidden"
+      className="section-spacing bg-cream relative overflow-hidden"
     >
       {/* Background Decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--color-cream-light)] -z-10" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-cream-light -z-10" />
 
       <div className="container-luxury">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -43,7 +43,7 @@ export default function About() {
           >
             {/* Main Image */}
             <div className="relative overflow-hidden">
-              <motion.div style={{ y: imageY }} className="aspect-[4/5]">
+              <motion.div style={{ y: imageY }} className="aspect-4/5">
                 <img
                   src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"
                   alt="Elena Voss - Interior Designer"
@@ -55,7 +55,7 @@ export default function About() {
                 initial={{ scaleY: 1 }}
                 animate={isInView ? { scaleY: 0 } : {}}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                className="absolute inset-0 bg-[var(--color-cream)] origin-bottom"
+                className="absolute inset-0 bg-cream origin-bottom"
               />
             </div>
 
@@ -64,7 +64,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-8 -right-8 lg:-right-16 w-48 h-64 shadow-[var(--shadow-elevated)]"
+              className="absolute -bottom-8 -right-8 lg:-right-16 w-48 h-64 shadow-(--shadow-elevated)"
             >
               <img
                 src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop"
@@ -78,7 +78,7 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 1, delay: 0.6 }}
-              className="absolute -top-6 -left-6 w-32 h-32 border border-[var(--color-gold)]/30"
+              className="absolute -top-6 -left-6 w-32 h-32 border border-gold/30"
             />
           </motion.div>
 
@@ -90,27 +90,27 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Label */}
-              <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-6">
-                <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+              <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
+                <span className="w-12 h-px bg-gold" />
                 About Us
               </span>
 
               {/* Heading */}
-              <h2 className="font-[var(--font-serif)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-wood-dark)] mb-6 leading-tight">
+              <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6 leading-tight">
                 Crafting Spaces
                 <br />
-                <span className="text-[var(--color-brown-warm)]">That Inspire</span>
+                <span className="text-brown-warm">That Inspire</span>
               </h2>
 
               {/* Description */}
-              <p className="text-[var(--color-brown-soft)] leading-relaxed mb-6">
+              <p className="text-brown-soft leading-relaxed mb-6">
                 With over eight years of experience in luxury interior design, Elena
                 Voss brings a refined sensibility to every project. Our approach
                 blends timeless elegance with contemporary functionality, creating
                 spaces that are both beautiful and livable.
               </p>
 
-              <p className="text-[var(--color-brown-soft)] leading-relaxed mb-8">
+              <p className="text-brown-soft leading-relaxed mb-8">
                 We believe that exceptional design should feel effortless—each
                 element thoughtfully curated to complement the whole, resulting in
                 interiors that stand the test of time.
@@ -122,13 +122,13 @@ export default function About() {
                   initial={{ scaleX: 0 }}
                   animate={isInView ? { scaleX: 1 } : {}}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="w-16 h-[1px] bg-[var(--color-gold)] origin-left"
+                  className="w-16 h-px bg-gold origin-left"
                 />
                 <div>
-                  <p className="font-[var(--font-serif)] text-xl text-[var(--color-wood-dark)] italic">
+                  <p className="font-(--font-serif) text-xl text-wood-dark italic">
                     Elena Voss
                   </p>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)]">
+                  <p className="text-xs uppercase tracking-wider text-taupe">
                     Founder & Principal Designer
                   </p>
                 </div>
@@ -140,7 +140,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-[var(--color-beige)]"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-beige"
             >
               {stats.map((stat, index) => (
                 <motion.div
@@ -154,10 +154,10 @@ export default function About() {
                   }}
                   className="text-center md:text-left"
                 >
-                  <p className="font-[var(--font-serif)] text-3xl md:text-4xl text-[var(--color-wood-dark)] mb-1">
+                  <p className="font-(--font-serif) text-3xl md:text-4xl text-wood-dark mb-1">
                     {stat.number}
                   </p>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)]">
+                  <p className="text-xs uppercase tracking-wider text-taupe">
                     {stat.label}
                   </p>
                 </motion.div>
