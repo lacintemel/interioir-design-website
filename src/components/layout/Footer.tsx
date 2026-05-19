@@ -36,7 +36,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-espresso)] text-[var(--color-cream)]">
+    <footer className="bg-espresso text-cream">
       {/* Main Footer */}
       <div className="container-luxury section-spacing">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -49,22 +49,22 @@ export default function Footer() {
             className="lg:col-span-1"
           >
             <Link href="#home" className="inline-block mb-6">
-              <span className="font-[var(--font-serif)] text-3xl text-[var(--color-cream)]">
+              <span className="font-(--font-serif) text-3xl text-cream">
                 Elena Voss
               </span>
-              <span className="block text-[10px] tracking-[0.3em] uppercase text-[var(--color-taupe)] mt-1">
+              <span className="block text-[10px] tracking-[0.3em] uppercase text-taupe mt-1">
                 Interior Design
               </span>
             </Link>
-            <p className="text-[var(--color-beige)] text-sm leading-relaxed max-w-xs">
+            <p className="text-beige text-sm leading-relaxed max-w-xs">
               Crafting timeless, elegant interiors that harmonize luxury with
               livability. Based in New York City.
             </p>
             <div className="mt-8">
-              <p className="text-[var(--color-taupe)] text-xs uppercase tracking-wider mb-2">
+              <p className="text-taupe text-xs uppercase tracking-wider mb-2">
                 Studio
               </p>
-              <p className="text-[var(--color-beige)] text-sm">
+              <p className="text-beige text-sm">
                 245 Park Avenue South
                 <br />
                 New York, NY 10003
@@ -85,7 +85,7 @@ export default function Footer() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
+              <h4 className="text-xs uppercase tracking-[0.2em] text-taupe mb-6">
                 {column.title}
               </h4>
               <ul className="space-y-3">
@@ -93,7 +93,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-[var(--color-beige)] hover:text-[var(--color-gold)] transition-colors duration-300 text-sm"
+                      className="text-beige hover:text-gold transition-colors duration-300 text-sm"
                     >
                       {link.name}
                     </Link>
@@ -106,21 +106,21 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[var(--color-wood-dark)]">
+      <div className="border-t border-wood-dark">
         <div className="container-luxury py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[var(--color-taupe)] text-xs">
+          <p className="text-taupe text-xs">
             © 2024 Elena Voss Interior Design. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="#"
-              className="text-[var(--color-taupe)] hover:text-[var(--color-gold)] transition-colors duration-300 text-xs"
+              className="text-taupe hover:text-gold transition-colors duration-300 text-xs"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-[var(--color-taupe)] hover:text-[var(--color-gold)] transition-colors duration-300 text-xs"
+              className="text-taupe hover:text-gold transition-colors duration-300 text-xs"
             >
               Terms of Service
             </Link>
@@ -134,7 +134,7 @@ export default function Footer() {
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="h-[2px] bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent"
+        className="h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"
       />
     </footer>
   );
