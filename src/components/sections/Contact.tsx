@@ -2,10 +2,12 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -51,20 +53,19 @@ export default function Contact() {
             {/* Label */}
             <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
               <span className="w-12 h-px bg-gold" />
-              Get In Touch
+              {t("contact.label")}
             </span>
 
             {/* Heading */}
             <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6 leading-tight">
-              Let's Create
+              {t("contact.title1")}
               <br />
-              <span className="text-brown-warm">Together</span>
+              <span className="text-brown-warm">{t("contact.title2")}</span>
             </h2>
 
             {/* Description */}
             <p className="text-brown-soft leading-relaxed mb-10 max-w-md">
-              Ready to transform your space? We'd love to hear about your project.
-              Reach out to schedule a complimentary consultation.
+              {t("contact.description")}
             </p>
 
             {/* Contact Info */}
@@ -98,12 +99,10 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                    Studio
+                    {t("contact.studio")}
                   </p>
                   <p className="text-wood-dark">
-                    245 Park Avenue South
-                    <br />
-                    New York, NY 10003
+                    Antalya, Türkiye
                   </p>
                 </div>
               </motion.div>
@@ -131,47 +130,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                    Email
+                    {t("contact.email")}
                   </p>
                   <a
-                    href="mailto:studio@elenavoss.com"
+                    href="mailto:info@bytufandesign.com"
                     className="text-wood-dark hover:text-gold transition-colors"
                   >
-                    studio@elenavoss.com
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex items-start gap-4"
-              >
-                <div className="w-12 h-12 bg-beige flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-gold"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+12125551234"
-                    className="text-wood-dark hover:text-gold transition-colors"
-                  >
-                    +1 (212) 555-1234
+                    info@bytufandesign.com
                   </a>
                 </div>
               </motion.div>
@@ -184,18 +149,20 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <p className="text-xs uppercase tracking-wider text-taupe mb-4">
-                Follow Us
+                {t("contact.followUs")}
               </p>
               <div className="flex gap-4">
-                {["Instagram", "Pinterest", "LinkedIn"].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="text-sm text-brown-warm hover:text-gold transition-colors underline-hover"
-                  >
-                    {social}
-                  </a>
-                ))}
+                <a
+                  href="https://www.instagram.com/by.tufandesign/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-brown-warm hover:text-gold transition-colors underline-hover inline-flex items-center gap-1.5"
+                >
+                  Instagram
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             </motion.div>
           </motion.div>
@@ -219,7 +186,7 @@ export default function Contact() {
                     onBlur={() => setFocusedField(null)}
                     required
                     className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer"
-                    placeholder="Your Name"
+                    placeholder={t("contact.yourName")}
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${
@@ -228,7 +195,7 @@ export default function Contact() {
                         : "top-4 text-taupe"
                     }`}
                   >
-                    Your Name
+                    {t("contact.yourName")}
                   </label>
                 </div>
 
@@ -242,7 +209,7 @@ export default function Contact() {
                     onBlur={() => setFocusedField(null)}
                     required
                     className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer"
-                    placeholder="Email Address"
+                    placeholder={t("contact.emailAddress")}
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${
@@ -251,7 +218,7 @@ export default function Contact() {
                         : "top-4 text-taupe"
                     }`}
                   >
-                    Email Address
+                    {t("contact.emailAddress")}
                   </label>
                 </div>
               </div>
@@ -267,7 +234,7 @@ export default function Contact() {
                     onFocus={() => setFocusedField("phone")}
                     onBlur={() => setFocusedField(null)}
                     className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer"
-                    placeholder="Phone Number"
+                    placeholder={t("contact.phoneOptional")}
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${
@@ -276,7 +243,7 @@ export default function Contact() {
                         : "top-4 text-taupe"
                     }`}
                   >
-                    Phone Number (Optional)
+                    {t("contact.phoneOptional")}
                   </label>
                 </div>
 
@@ -291,13 +258,13 @@ export default function Contact() {
                     className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark appearance-none cursor-pointer"
                   >
                     <option value="" disabled>
-                      Project Type
+                      {t("contact.projectType")}
                     </option>
-                    <option value="residential">Residential</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="hospitality">Hospitality</option>
-                    <option value="renovation">Renovation</option>
-                    <option value="consultation">Consultation Only</option>
+                    <option value="residential">{t("portfolio.residential")}</option>
+                    <option value="commercial">{t("portfolio.commercial")}</option>
+                    <option value="hospitality">{t("portfolio.hospitality")}</option>
+                    <option value="renovation">{t("services.s3.title")}</option>
+                    <option value="consultation">{t("services.s4.title")}</option>
                   </select>
                   <svg
                     className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe pointer-events-none"
@@ -326,7 +293,7 @@ export default function Contact() {
                   className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark appearance-none cursor-pointer"
                 >
                   <option value="" disabled>
-                    Estimated Budget
+                    {t("contact.budget")}
                   </option>
                   <option value="50-100k">$50,000 - $100,000</option>
                   <option value="100-250k">$100,000 - $250,000</option>
@@ -359,7 +326,7 @@ export default function Contact() {
                   rows={4}
                   required
                   className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer resize-none"
-                  placeholder="Tell us about your project"
+                  placeholder={t("contact.message")}
                 />
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none ${
@@ -368,7 +335,7 @@ export default function Contact() {
                       : "top-4 text-taupe"
                   }`}
                 >
-                  Tell us about your project
+                  {t("contact.message")}
                 </label>
               </div>
 
@@ -379,7 +346,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
                 className="btn-primary w-full justify-center mt-8"
               >
-                <span>Send Message</span>
+                <span>{t("contact.send")}</span>
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -396,7 +363,7 @@ export default function Contact() {
               </motion.button>
 
               <p className="text-xs text-taupe text-center mt-4">
-                We typically respond within 24-48 hours
+                {t("contact.response")}
               </p>
             </form>
           </motion.div>
