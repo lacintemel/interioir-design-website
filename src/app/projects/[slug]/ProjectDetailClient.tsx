@@ -43,26 +43,26 @@ export default function ProjectDetailClient({
   }, []);
 
   return (
-    <div className="bg-[var(--color-cream)]">
+    <div className="bg-cream">
       {/* Sticky Project Title Bar */}
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: isHeaderCompact ? 0 : -100 }}
         transition={{ duration: 0.3 }}
-        className="fixed top-[80px] left-0 right-0 z-40 bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-beige)]"
+        className="fixed top-[80px] left-0 right-0 z-40 bg-cream/95 backdrop-blur-sm border-b border-beige"
       >
         <div className="container-luxury py-4 flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+            <p className="text-xs uppercase tracking-[0.2em] text-taupe">
               {project.category}
             </p>
-            <h2 className="font-[var(--font-serif)] text-xl text-[var(--color-wood-dark)]">
+            <h2 className="font-(--font-serif) text-xl text-wood-dark">
               {project.title}
             </h2>
           </div>
           <Link
             href="/#portfolio"
-            className="text-xs uppercase tracking-wider text-[var(--color-brown-warm)] hover:text-[var(--color-gold)] transition-colors"
+            className="text-xs uppercase tracking-wider text-brown-warm hover:text-gold transition-colors"
           >
             All Projects
           </Link>
@@ -81,7 +81,7 @@ export default function ProjectDetailClient({
             alt={project.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-espresso)]/40 via-[var(--color-espresso)]/20 to-[var(--color-espresso)]/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-espresso/40 via-espresso/20 to-espresso/60" />
         </motion.div>
 
         {/* Hero Content */}
@@ -96,8 +96,8 @@ export default function ProjectDetailClient({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-gold)] mb-4">
-                <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+              <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-gold mb-4">
+                <span className="w-12 h-px bg-gold" />
                 {project.category}
               </span>
             </motion.div>
@@ -107,7 +107,7 @@ export default function ProjectDetailClient({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="font-[var(--font-serif)] text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[var(--color-cream)] mb-6 max-w-4xl"
+              className="font-(--font-serif) text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-cream mb-6 max-w-4xl"
             >
               {project.title}
             </motion.h1>
@@ -117,7 +117,7 @@ export default function ProjectDetailClient({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-[var(--color-beige)] max-w-2xl mb-8"
+              className="text-xl md:text-2xl text-beige max-w-2xl mb-8"
             >
               {project.tagline}
             </motion.p>
@@ -130,31 +130,31 @@ export default function ProjectDetailClient({
               className="flex flex-wrap gap-8"
             >
               <div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-gold)] mb-1">
+                <p className="text-xs uppercase tracking-wider text-gold mb-1">
                   Location
                 </p>
-                <p className="text-[var(--color-cream)]">{project.location}</p>
+                <p className="text-cream">{project.location}</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-gold)] mb-1">
+                <p className="text-xs uppercase tracking-wider text-gold mb-1">
                   Year
                 </p>
-                <p className="text-[var(--color-cream)]">{project.year}</p>
+                <p className="text-cream">{project.year}</p>
               </div>
               {project.size && (
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-gold)] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-gold mb-1">
                     Size
                   </p>
-                  <p className="text-[var(--color-cream)]">{project.size}</p>
+                  <p className="text-cream">{project.size}</p>
                 </div>
               )}
               {project.duration && (
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-gold)] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-gold mb-1">
                     Duration
                   </p>
-                  <p className="text-[var(--color-cream)]">{project.duration}</p>
+                  <p className="text-cream">{project.duration}</p>
                 </div>
               )}
             </motion.div>
@@ -171,9 +171,9 @@ export default function ProjectDetailClient({
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-[var(--color-cream)]/50 rounded-full flex justify-center"
+            className="w-6 h-10 border-2 border-cream/50 rounded-full flex justify-center"
           >
-            <motion.div className="w-1 h-2 bg-[var(--color-cream)] rounded-full mt-2" />
+            <motion.div className="w-1 h-2 bg-cream rounded-full mt-2" />
           </motion.div>
         </motion.div>
       </section>
@@ -186,10 +186,10 @@ export default function ProjectDetailClient({
             {/* Description */}
             <div className="lg:col-span-2">
               <SectionReveal>
-                <h2 className="font-[var(--font-serif)] text-3xl md:text-4xl text-[var(--color-wood-dark)] mb-6">
+                <h2 className="font-(--font-serif) text-3xl md:text-4xl text-wood-dark mb-6">
                   Overview
                 </h2>
-                <p className="text-[var(--color-brown-soft)] leading-relaxed text-lg">
+                <p className="text-brown-soft leading-relaxed text-lg">
                   {project.description}
                 </p>
               </SectionReveal>
@@ -198,54 +198,54 @@ export default function ProjectDetailClient({
             {/* Project Details Sidebar */}
             <div className="lg:col-span-1">
               <SectionReveal delay={0.2}>
-                <div className="bg-[var(--color-cream-light)] p-8 border border-[var(--color-beige)]">
-                  <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
+                <div className="bg-cream-light p-8 border border-beige">
+                  <h3 className="text-xs uppercase tracking-[0.2em] text-taupe mb-6">
                     Project Details
                   </h3>
 
                   <div className="space-y-4">
                     {project.client && (
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                        <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                           Client
                         </p>
-                        <p className="text-[var(--color-wood-dark)]">
+                        <p className="text-wood-dark">
                           {project.client}
                         </p>
                       </div>
                     )}
                     <div>
-                      <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                      <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                         Location
                       </p>
-                      <p className="text-[var(--color-wood-dark)]">
+                      <p className="text-wood-dark">
                         {project.location}
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                      <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                         Year
                       </p>
-                      <p className="text-[var(--color-wood-dark)]">
+                      <p className="text-wood-dark">
                         {project.year}
                       </p>
                     </div>
                     {project.size && (
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                        <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                           Size
                         </p>
-                        <p className="text-[var(--color-wood-dark)]">
+                        <p className="text-wood-dark">
                           {project.size}
                         </p>
                       </div>
                     )}
                     {project.duration && (
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                        <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                           Duration
                         </p>
-                        <p className="text-[var(--color-wood-dark)]">
+                        <p className="text-wood-dark">
                           {project.duration}
                         </p>
                       </div>
@@ -253,15 +253,15 @@ export default function ProjectDetailClient({
                   </div>
 
                   {project.awards && project.awards.length > 0 && (
-                    <div className="mt-8 pt-8 border-t border-[var(--color-beige)]">
-                      <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold)] mb-4">
+                    <div className="mt-8 pt-8 border-t border-beige">
+                      <h3 className="text-xs uppercase tracking-[0.2em] text-gold mb-4">
                         Awards
                       </h3>
                       <ul className="space-y-2">
                         {project.awards.map((award, index) => (
                           <li
                             key={index}
-                            className="text-sm text-[var(--color-brown-soft)]"
+                            className="text-sm text-brown-soft"
                           >
                             {award}
                           </li>
@@ -277,22 +277,22 @@ export default function ProjectDetailClient({
           {/* Challenge & Solution */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
             <SectionReveal>
-              <div className="relative pl-8 border-l-2 border-[var(--color-gold)]">
-                <h3 className="font-[var(--font-serif)] text-2xl text-[var(--color-wood-dark)] mb-4">
+              <div className="relative pl-8 border-l-2 border-gold">
+                <h3 className="font-(--font-serif) text-2xl text-wood-dark mb-4">
                   The Challenge
                 </h3>
-                <p className="text-[var(--color-brown-soft)] leading-relaxed">
+                <p className="text-brown-soft leading-relaxed">
                   {project.challenge}
                 </p>
               </div>
             </SectionReveal>
 
             <SectionReveal delay={0.2}>
-              <div className="relative pl-8 border-l-2 border-[var(--color-sage)]">
-                <h3 className="font-[var(--font-serif)] text-2xl text-[var(--color-wood-dark)] mb-4">
+              <div className="relative pl-8 border-l-2 border-sage">
+                <h3 className="font-(--font-serif) text-2xl text-wood-dark mb-4">
                   Our Solution
                 </h3>
-                <p className="text-[var(--color-brown-soft)] leading-relaxed">
+                <p className="text-brown-soft leading-relaxed">
                   {project.solution}
                 </p>
               </div>
@@ -302,16 +302,16 @@ export default function ProjectDetailClient({
       </section>
 
       {/* Image Gallery */}
-      <section className="section-spacing bg-[var(--color-cream-light)]">
+      <section className="section-spacing bg-cream-light">
         <div className="container-luxury">
           <SectionReveal>
             <div className="text-center mb-12">
-              <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-4">
-                <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+              <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-4">
+                <span className="w-12 h-px bg-gold" />
                 Gallery
-                <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+                <span className="w-12 h-px bg-gold" />
               </span>
-              <h2 className="font-[var(--font-serif)] text-3xl md:text-4xl text-[var(--color-wood-dark)]">
+              <h2 className="font-(--font-serif) text-3xl md:text-4xl text-wood-dark">
                 Project Images
               </h2>
             </div>
@@ -328,15 +328,15 @@ export default function ProjectDetailClient({
             {/* Concept */}
             <SectionReveal>
               <div>
-                <h3 className="font-[var(--font-serif)] text-3xl text-[var(--color-wood-dark)] mb-6">
+                <h3 className="font-(--font-serif) text-3xl text-wood-dark mb-6">
                   Design Concept
                 </h3>
-                <p className="text-[var(--color-brown-soft)] leading-relaxed mb-8">
+                <p className="text-brown-soft leading-relaxed mb-8">
                   {project.concept}
                 </p>
 
                 {/* Features */}
-                <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
+                <h4 className="text-xs uppercase tracking-[0.2em] text-taupe mb-4">
                   Key Features
                 </h4>
                 <ul className="space-y-3">
@@ -349,8 +349,8 @@ export default function ProjectDetailClient({
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <span className="w-1.5 h-1.5 bg-[var(--color-gold)] rounded-full mt-2 shrink-0" />
-                      <span className="text-[var(--color-brown-soft)]">
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full mt-2 shrink-0" />
+                      <span className="text-brown-soft">
                         {feature}
                       </span>
                     </motion.li>
@@ -362,7 +362,7 @@ export default function ProjectDetailClient({
             {/* Materials */}
             <SectionReveal delay={0.2}>
               <div>
-                <h3 className="font-[var(--font-serif)] text-3xl text-[var(--color-wood-dark)] mb-6">
+                <h3 className="font-(--font-serif) text-3xl text-wood-dark mb-6">
                   Material Palette
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -373,10 +373,10 @@ export default function ProjectDetailClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
-                      className="group relative p-6 bg-[var(--color-cream-light)] border border-[var(--color-beige)] hover:border-[var(--color-gold)] transition-colors duration-300"
+                      className="group relative p-6 bg-cream-light border border-beige hover:border-gold transition-colors duration-300"
                     >
-                      <div className="absolute top-0 left-0 w-1 h-0 bg-[var(--color-gold)] group-hover:h-full transition-all duration-500" />
-                      <span className="text-[var(--color-wood-dark)]">
+                      <div className="absolute top-0 left-0 w-1 h-0 bg-gold group-hover:h-full transition-all duration-500" />
+                      <span className="text-wood-dark">
                         {material}
                       </span>
                     </motion.div>
@@ -390,16 +390,16 @@ export default function ProjectDetailClient({
 
       {/* Before/After Comparison */}
       {project.beforeAfter && (
-        <section className="section-spacing bg-[var(--color-espresso)]">
+        <section className="section-spacing bg-espresso">
           <div className="container-luxury">
             <SectionReveal>
               <div className="text-center mb-12">
-                <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-4">
-                  <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+                <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-4">
+                  <span className="w-12 h-px bg-gold" />
                   Transformation
-                  <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+                  <span className="w-12 h-px bg-gold" />
                 </span>
-                <h2 className="font-[var(--font-serif)] text-3xl md:text-4xl text-[var(--color-cream)]">
+                <h2 className="font-(--font-serif) text-3xl md:text-4xl text-cream">
                   Before & After
                 </h2>
               </div>
@@ -415,27 +415,27 @@ export default function ProjectDetailClient({
 
       {/* Testimonial */}
       {project.testimonial && (
-        <section className="section-spacing bg-[var(--color-cream-light)]">
+        <section className="section-spacing bg-cream-light">
           <div className="container-luxury">
             <SectionReveal>
               <div className="max-w-4xl mx-auto text-center">
                 <svg
-                  className="w-16 h-16 text-[var(--color-gold)]/20 mx-auto mb-8"
+                  className="w-16 h-16 text-gold/20 mx-auto mb-8"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
 
-                <blockquote className="font-[var(--font-serif)] text-2xl md:text-3xl text-[var(--color-wood-dark)] leading-relaxed mb-8 italic">
+                <blockquote className="font-(--font-serif) text-2xl md:text-3xl text-wood-dark leading-relaxed mb-8 italic">
                   "{project.testimonial.quote}"
                 </blockquote>
 
                 <div>
-                  <p className="text-[var(--color-wood-dark)] font-medium">
+                  <p className="text-wood-dark font-medium">
                     {project.testimonial.author}
                   </p>
-                  <p className="text-sm text-[var(--color-taupe)]">
+                  <p className="text-sm text-taupe">
                     {project.testimonial.role}
                   </p>
                 </div>
@@ -447,16 +447,16 @@ export default function ProjectDetailClient({
 
       {/* Credits */}
       {project.credits && project.credits.length > 0 && (
-        <section className="py-16 border-t border-[var(--color-beige)]">
+        <section className="py-16 border-t border-beige">
           <div className="container-luxury">
             <SectionReveal>
               <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
                 {project.credits.map((credit, index) => (
                   <div key={index} className="text-center">
-                    <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-1">
+                    <p className="text-xs uppercase tracking-[0.2em] text-taupe mb-1">
                       {credit.role}
                     </p>
-                    <p className="text-[var(--color-wood-dark)]">{credit.name}</p>
+                    <p className="text-wood-dark">{credit.name}</p>
                   </div>
                 ))}
               </div>
