@@ -35,10 +35,10 @@ export default function Contact() {
     <section
       ref={containerRef}
       id="contact"
-      className="section-spacing bg-[var(--color-cream)] relative overflow-hidden"
+      className="section-spacing bg-cream relative overflow-hidden"
     >
       {/* Background Decoration */}
-      <div className="absolute top-0 left-0 w-1/2 h-full bg-[var(--color-cream-light)] -z-10" />
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-cream-light -z-10" />
 
       <div className="container-luxury">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -49,20 +49,20 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Label */}
-            <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-6">
-              <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+            <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
+              <span className="w-12 h-px bg-gold" />
               Get In Touch
             </span>
 
             {/* Heading */}
-            <h2 className="font-[var(--font-serif)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-wood-dark)] mb-6 leading-tight">
+            <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6 leading-tight">
               Let's Create
               <br />
-              <span className="text-[var(--color-brown-warm)]">Together</span>
+              <span className="text-brown-warm">Together</span>
             </h2>
 
             {/* Description */}
-            <p className="text-[var(--color-brown-soft)] leading-relaxed mb-10 max-w-md">
+            <p className="text-brown-soft leading-relaxed mb-10 max-w-md">
               Ready to transform your space? We'd love to hear about your project.
               Reach out to schedule a complimentary consultation.
             </p>
@@ -75,9 +75,9 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex items-start gap-4"
               >
-                <div className="w-12 h-12 bg-[var(--color-beige)] flex items-center justify-center">
+                <div className="w-12 h-12 bg-beige flex items-center justify-center">
                   <svg
-                    className="w-5 h-5 text-[var(--color-gold)]"
+                    className="w-5 h-5 text-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -97,10 +97,10 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                     Studio
                   </p>
-                  <p className="text-[var(--color-wood-dark)]">
+                  <p className="text-wood-dark">
                     245 Park Avenue South
                     <br />
                     New York, NY 10003
@@ -114,9 +114,9 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex items-start gap-4"
               >
-                <div className="w-12 h-12 bg-[var(--color-beige)] flex items-center justify-center">
+                <div className="w-12 h-12 bg-beige flex items-center justify-center">
                   <svg
-                    className="w-5 h-5 text-[var(--color-gold)]"
+                    className="w-5 h-5 text-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -130,12 +130,12 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                     Email
                   </p>
                   <a
                     href="mailto:studio@elenavoss.com"
-                    className="text-[var(--color-wood-dark)] hover:text-[var(--color-gold)] transition-colors"
+                    className="text-wood-dark hover:text-gold transition-colors"
                   >
                     studio@elenavoss.com
                   </a>
@@ -148,9 +148,9 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="flex items-start gap-4"
               >
-                <div className="w-12 h-12 bg-[var(--color-beige)] flex items-center justify-center">
+                <div className="w-12 h-12 bg-beige flex items-center justify-center">
                   <svg
-                    className="w-5 h-5 text-[var(--color-gold)]"
+                    className="w-5 h-5 text-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -164,12 +164,12 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-taupe mb-1">
                     Phone
                   </p>
                   <a
                     href="tel:+12125551234"
-                    className="text-[var(--color-wood-dark)] hover:text-[var(--color-gold)] transition-colors"
+                    className="text-wood-dark hover:text-gold transition-colors"
                   >
                     +1 (212) 555-1234
                   </a>
@@ -183,7 +183,7 @@ export default function Contact() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <p className="text-xs uppercase tracking-wider text-[var(--color-taupe)] mb-4">
+              <p className="text-xs uppercase tracking-wider text-taupe mb-4">
                 Follow Us
               </p>
               <div className="flex gap-4">
@@ -191,7 +191,7 @@ export default function Contact() {
                   <a
                     key={social}
                     href="#"
-                    className="text-sm text-[var(--color-brown-warm)] hover:text-[var(--color-gold)] transition-colors underline-hover"
+                    className="text-sm text-brown-warm hover:text-gold transition-colors underline-hover"
                   >
                     {social}
                   </a>
@@ -218,14 +218,14 @@ export default function Contact() {
                     onFocus={() => setFocusedField("name")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-0 py-4 bg-transparent border-b border-[var(--color-beige)] focus:border-[var(--color-gold)] outline-none transition-colors text-[var(--color-wood-dark)] placeholder-transparent peer"
+                    className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer"
                     placeholder="Your Name"
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                       formState.name || focusedField === "name"
-                        ? "-top-2 text-xs text-[var(--color-gold)]"
-                        : "top-4 text-[var(--color-taupe)]"
+                        ? "-top-2 text-xs text-gold"
+                        : "top-4 text-taupe"
                     }`}
                   >
                     Your Name
@@ -241,14 +241,14 @@ export default function Contact() {
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-0 py-4 bg-transparent border-b border-[var(--color-beige)] focus:border-[var(--color-gold)] outline-none transition-colors text-[var(--color-wood-dark)] placeholder-transparent peer"
+                    className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer"
                     placeholder="Email Address"
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                       formState.email || focusedField === "email"
-                        ? "-top-2 text-xs text-[var(--color-gold)]"
-                        : "top-4 text-[var(--color-taupe)]"
+                        ? "-top-2 text-xs text-gold"
+                        : "top-4 text-taupe"
                     }`}
                   >
                     Email Address
@@ -266,14 +266,14 @@ export default function Contact() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField("phone")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full px-0 py-4 bg-transparent border-b border-[var(--color-beige)] focus:border-[var(--color-gold)] outline-none transition-colors text-[var(--color-wood-dark)] placeholder-transparent peer"
+                    className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer"
                     placeholder="Phone Number"
                   />
                   <label
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                       formState.phone || focusedField === "phone"
-                        ? "-top-2 text-xs text-[var(--color-gold)]"
-                        : "top-4 text-[var(--color-taupe)]"
+                        ? "-top-2 text-xs text-gold"
+                        : "top-4 text-taupe"
                     }`}
                   >
                     Phone Number (Optional)
@@ -288,7 +288,7 @@ export default function Contact() {
                     onFocus={() => setFocusedField("projectType")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-0 py-4 bg-transparent border-b border-[var(--color-beige)] focus:border-[var(--color-gold)] outline-none transition-colors text-[var(--color-wood-dark)] appearance-none cursor-pointer"
+                    className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark appearance-none cursor-pointer"
                   >
                     <option value="" disabled>
                       Project Type
@@ -300,7 +300,7 @@ export default function Contact() {
                     <option value="consultation">Consultation Only</option>
                   </select>
                   <svg
-                    className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-taupe)] pointer-events-none"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe pointer-events-none"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -323,7 +323,7 @@ export default function Contact() {
                   onChange={handleChange}
                   onFocus={() => setFocusedField("budget")}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full px-0 py-4 bg-transparent border-b border-[var(--color-beige)] focus:border-[var(--color-gold)] outline-none transition-colors text-[var(--color-wood-dark)] appearance-none cursor-pointer"
+                  className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark appearance-none cursor-pointer"
                 >
                   <option value="" disabled>
                     Estimated Budget
@@ -334,7 +334,7 @@ export default function Contact() {
                   <option value="500k+">$500,000+</option>
                 </select>
                 <svg
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-taupe)] pointer-events-none"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe pointer-events-none"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -358,14 +358,14 @@ export default function Contact() {
                   onBlur={() => setFocusedField(null)}
                   rows={4}
                   required
-                  className="w-full px-0 py-4 bg-transparent border-b border-[var(--color-beige)] focus:border-[var(--color-gold)] outline-none transition-colors text-[var(--color-wood-dark)] placeholder-transparent peer resize-none"
+                  className="w-full px-0 py-4 bg-transparent border-b border-beige focus:border-gold outline-none transition-colors text-wood-dark placeholder-transparent peer resize-none"
                   placeholder="Tell us about your project"
                 />
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                     formState.message || focusedField === "message"
-                      ? "-top-2 text-xs text-[var(--color-gold)]"
-                      : "top-4 text-[var(--color-taupe)]"
+                      ? "-top-2 text-xs text-gold"
+                      : "top-4 text-taupe"
                   }`}
                 >
                   Tell us about your project
@@ -395,7 +395,7 @@ export default function Contact() {
                 </svg>
               </motion.button>
 
-              <p className="text-xs text-[var(--color-taupe)] text-center mt-4">
+              <p className="text-xs text-taupe text-center mt-4">
                 We typically respond within 24-48 hours
               </p>
             </form>
