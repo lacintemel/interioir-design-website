@@ -2,47 +2,45 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-
-const steps = [
-  {
-    number: "01",
-    title: "Discovery",
-    description:
-      "We begin with an in-depth consultation to understand your vision, lifestyle, and aspirations for the space.",
-    details: ["Initial Meeting", "Site Analysis", "Budget Discussion", "Timeline Planning"],
-  },
-  {
-    number: "02",
-    title: "Concept",
-    description:
-      "Our team develops comprehensive design concepts, including mood boards, sketches, and preliminary layouts.",
-    details: ["Mood Boards", "Space Planning", "Material Exploration", "Style Direction"],
-  },
-  {
-    number: "03",
-    title: "Design Development",
-    description:
-      "Refining the approved concept into detailed drawings, material specifications, and custom furniture designs.",
-    details: ["3D Renderings", "Material Samples", "Furniture Selection", "Lighting Design"],
-  },
-  {
-    number: "04",
-    title: "Implementation",
-    description:
-      "Overseeing every aspect of the installation process to ensure the design vision is realized with precision.",
-    details: ["Contractor Coordination", "Quality Control", "On-site Management", "Final Styling"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "100%"]);
+
+  const steps = [
+    {
+      number: "01",
+      title: t("process.step1"),
+      description: t("process.step1.desc"),
+      details: ["Initial Meeting", "Site Analysis", "Budget Discussion", "Timeline Planning"],
+    },
+    {
+      number: "02",
+      title: t("process.step2"),
+      description: t("process.step2.desc"),
+      details: ["Mood Boards", "Space Planning", "Material Exploration", "Style Direction"],
+    },
+    {
+      number: "03",
+      title: t("process.step3"),
+      description: t("process.step3.desc"),
+      details: ["3D Renderings", "Material Samples", "Furniture Selection", "Lighting Design"],
+    },
+    {
+      number: "04",
+      title: t("process.step4"),
+      description: t("process.step4.desc"),
+      details: ["Contractor Coordination", "Quality Control", "On-site Management", "Final Styling"],
+    },
+  ];
 
   return (
     <section
@@ -63,17 +61,16 @@ export default function Process() {
         >
           <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
             <span className="w-12 h-px bg-gold" />
-            How We Work
+            {t("process.label")}
             <span className="w-12 h-px bg-gold" />
           </span>
 
           <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6">
-            Our Process
+            {t("process.title")}
           </h2>
 
           <p className="text-brown-soft max-w-2xl mx-auto">
-            A methodical approach that ensures every project is executed with precision,
-            creativity, and unwavering attention to detail.
+            {t("process.description")}
           </p>
         </motion.div>
 
@@ -190,10 +187,10 @@ export default function Process() {
           className="text-center mt-20 lg:mt-28"
         >
           <p className="text-brown-soft mb-6">
-            Ready to begin your design journey?
+            {t("process.cta")}
           </p>
-          <a href="#contact" className="btn-primary">
-            <span>Start Your Project</span>
+          <a href="/#contact" className="btn-primary">
+            <span>{t("process.ctaButton")}</span>
             <svg
               className="w-4 h-4"
               fill="none"
