@@ -104,7 +104,7 @@ export default function ImageGallery({ images, projectTitle }: ImageGalleryProps
               ease: [0.16, 1, 0.3, 1],
             }}
             className={`group relative cursor-pointer overflow-hidden ${
-              index === 0 ? "md:col-span-2 aspect-[16/9]" : "aspect-[4/3]"
+              index === 0 ? "md:col-span-2 aspect-16/9" : "aspect-4/3"
             }`}
             onClick={() => setSelectedIndex(index)}
             onMouseEnter={() => preloadImage(index)}
@@ -119,7 +119,7 @@ export default function ImageGallery({ images, projectTitle }: ImageGalleryProps
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-espresso)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Caption */}
             {image.caption && (
@@ -129,7 +129,7 @@ export default function ImageGallery({ images, projectTitle }: ImageGalleryProps
                 whileHover={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-[var(--color-cream)] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-cream text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {image.caption}
                 </p>
               </motion.div>
@@ -163,7 +163,7 @@ export default function ImageGallery({ images, projectTitle }: ImageGalleryProps
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-[var(--color-espresso)]/95 backdrop-blur-md flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-espresso/95 backdrop-blur-md flex items-center justify-center"
             onClick={() => {
               if (!isZoomed) setSelectedIndex(null);
               setIsZoomed(false);
@@ -301,7 +301,7 @@ export default function ImageGallery({ images, projectTitle }: ImageGalleryProps
                   }}
                   className={`w-16 h-12 overflow-hidden transition-all duration-300 ${
                     index === selectedIndex
-                      ? "ring-2 ring-[var(--color-gold)] opacity-100"
+                      ? "ring-2 ring-gold opacity-100"
                       : "opacity-40 hover:opacity-70"
                   }`}
                 >

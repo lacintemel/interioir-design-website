@@ -83,7 +83,7 @@ export default function Services() {
     <section
       ref={containerRef}
       id="services"
-      className="section-spacing bg-[var(--color-cream)] relative overflow-hidden"
+      className="section-spacing bg-cream relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 grid-overlay opacity-50" />
@@ -96,17 +96,17 @@ export default function Services() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-6">
-            <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+          <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
+            <span className="w-12 h-px bg-gold" />
             What We Do
-            <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+            <span className="w-12 h-px bg-gold" />
           </span>
 
-          <h2 className="font-[var(--font-serif)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-wood-dark)] mb-6">
+          <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6">
             Our Services
           </h2>
 
-          <p className="text-[var(--color-brown-soft)] max-w-2xl mx-auto">
+          <p className="text-brown-soft max-w-2xl mx-auto">
             Comprehensive design solutions tailored to your unique needs, from initial
             concept through final installation.
           </p>
@@ -129,9 +129,9 @@ export default function Services() {
               className="group relative"
             >
               <motion.div
-                className={`relative p-8 lg:p-10 bg-[var(--color-cream-light)] border border-[var(--color-beige)] transition-all duration-500 ${
+                className={`relative p-8 lg:p-10 bg-cream-light border border-beige transition-all duration-500 ${
                   hoveredService === service.id
-                    ? "shadow-[var(--shadow-medium)]"
+                    ? "shadow-(--shadow-medium)"
                     : "shadow-none"
                 }`}
                 animate={{
@@ -141,7 +141,7 @@ export default function Services() {
               >
                 {/* Icon */}
                 <motion.div
-                  className="text-[var(--color-gold)] mb-6"
+                  className="text-gold mb-6"
                   animate={{
                     scale: hoveredService === service.id ? 1.1 : 1,
                   }}
@@ -151,12 +151,12 @@ export default function Services() {
                 </motion.div>
 
                 {/* Title */}
-                <h3 className="font-[var(--font-serif)] text-2xl lg:text-3xl text-[var(--color-wood-dark)] mb-4">
+                <h3 className="font-(--font-serif) text-2xl lg:text-3xl text-wood-dark mb-4">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[var(--color-brown-soft)] mb-6 leading-relaxed">
+                <p className="text-brown-soft mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
@@ -175,9 +175,9 @@ export default function Services() {
                         duration: 0.3,
                         delay: featureIndex * 0.05,
                       }}
-                      className="flex items-center gap-3 text-sm text-[var(--color-taupe)]"
+                      className="flex items-center gap-3 text-sm text-taupe"
                     >
-                      <span className="w-1.5 h-1.5 bg-[var(--color-gold)] rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-gold rounded-full" />
                       {feature}
                     </motion.li>
                   ))}
@@ -186,7 +186,7 @@ export default function Services() {
                 {/* Learn More Link */}
                 <motion.a
                   href="#contact"
-                  className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-[var(--color-brown-warm)] hover:text-[var(--color-gold)] transition-colors duration-300"
+                  className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-brown-warm hover:text-gold transition-colors duration-300"
                   animate={{
                     x: hoveredService === service.id ? 5 : 0,
                   }}
@@ -215,8 +215,8 @@ export default function Services() {
                   animate={{ opacity: hoveredService === service.id ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="absolute top-0 right-0 w-full h-[1px] bg-[var(--color-gold)]" />
-                  <div className="absolute top-0 right-0 w-[1px] h-full bg-[var(--color-gold)]" />
+                  <div className="absolute top-0 right-0 w-full h-px bg-gold" />
+                  <div className="absolute top-0 right-0 w-px h-full bg-gold" />
                 </motion.div>
               </motion.div>
             </motion.div>
