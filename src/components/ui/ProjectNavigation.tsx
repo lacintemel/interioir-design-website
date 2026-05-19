@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { ProjectDetail } from "@/data/projects";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProjectNavigationProps {
   prev: ProjectDetail | null;
@@ -13,6 +14,7 @@ interface ProjectNavigationProps {
 export default function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-50px" });
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -61,7 +63,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
                   />
                 </svg>
                 <span className="text-xs uppercase tracking-[0.2em]">
-                  Previous Project
+                  {t("projectDetail.prevProject")}
                 </span>
               </motion.div>
 
@@ -77,7 +79,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
         ) : (
           <div className="bg-cream-light p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex items-center justify-center">
             <p className="text-taupe text-sm">
-              This is the first project
+              {t("projectDetail.firstProject")}
             </p>
           </div>
         )}
@@ -107,7 +109,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
                 className="flex items-center gap-2 text-gold mb-4"
               >
                 <span className="text-xs uppercase tracking-[0.2em]">
-                  Next Project
+                  {t("projectDetail.nextProject")}
                 </span>
                 <svg
                   className="w-5 h-5"
@@ -136,7 +138,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
         ) : (
           <div className="bg-cream-light p-8 md:p-12 lg:p-16 min-h-[200px] md:min-h-[300px] flex items-center justify-center border-t md:border-t-0 md:border-l border-beige">
             <p className="text-taupe text-sm">
-              This is the last project
+              {t("projectDetail.lastProject")}
             </p>
           </div>
         )}
@@ -162,7 +164,7 @@ export default function ProjectNavigation({ prev, next }: ProjectNavigationProps
             />
           </svg>
           <span className="text-sm uppercase tracking-[0.15em]">
-            Back to All Projects
+            {t("projectDetail.backToAll")}
           </span>
         </Link>
       </div>
