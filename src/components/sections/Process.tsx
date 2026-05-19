@@ -48,7 +48,7 @@ export default function Process() {
     <section
       ref={containerRef}
       id="process"
-      className="section-spacing bg-[var(--color-cream-light)] relative overflow-hidden"
+      className="section-spacing bg-cream-light relative overflow-hidden"
     >
       {/* Blueprint Background */}
       <div className="absolute inset-0 blueprint-grid opacity-30" />
@@ -61,17 +61,17 @@ export default function Process() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16 lg:mb-24"
         >
-          <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-6">
-            <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+          <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
+            <span className="w-12 h-px bg-gold" />
             How We Work
-            <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+            <span className="w-12 h-px bg-gold" />
           </span>
 
-          <h2 className="font-[var(--font-serif)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-wood-dark)] mb-6">
+          <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6">
             Our Process
           </h2>
 
-          <p className="text-[var(--color-brown-soft)] max-w-2xl mx-auto">
+          <p className="text-brown-soft max-w-2xl mx-auto">
             A methodical approach that ensures every project is executed with precision,
             creativity, and unwavering attention to detail.
           </p>
@@ -80,9 +80,9 @@ export default function Process() {
         {/* Process Steps */}
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[1px] bg-[var(--color-beige)]">
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-beige">
             <motion.div
-              className="w-full bg-[var(--color-gold)] origin-top"
+              className="w-full bg-gold origin-top"
               style={{ height: lineHeight }}
             />
           </div>
@@ -112,9 +112,9 @@ export default function Process() {
                     delay: 0.5 + index * 0.2,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[var(--color-cream)] border-2 border-[var(--color-gold)] rounded-full flex items-center justify-center z-10"
+                  className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-16 h-16 bg-cream border-2 border-gold rounded-full flex items-center justify-center z-10"
                 >
-                  <span className="font-[var(--font-serif)] text-xl text-[var(--color-gold)]">
+                  <span className="font-(--font-serif) text-xl text-gold">
                     {step.number}
                   </span>
                 </motion.div>
@@ -128,12 +128,12 @@ export default function Process() {
                   }`}
                 >
                   {/* Title */}
-                  <h3 className="font-[var(--font-serif)] text-3xl lg:text-4xl text-[var(--color-wood-dark)] mb-4">
+                  <h3 className="font-(--font-serif) text-3xl lg:text-4xl text-wood-dark mb-4">
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[var(--color-brown-soft)] leading-relaxed mb-6">
+                  <p className="text-brown-soft leading-relaxed mb-6">
                     {step.description}
                   </p>
 
@@ -152,11 +152,11 @@ export default function Process() {
                           duration: 0.5,
                           delay: 0.6 + index * 0.2 + detailIndex * 0.1,
                         }}
-                        className={`flex items-center gap-3 text-sm text-[var(--color-taupe)] ${
+                        className={`flex items-center gap-3 text-sm text-taupe ${
                           index % 2 === 0 ? "md:flex-row-reverse" : ""
                         }`}
                       >
-                        <span className="w-1.5 h-1.5 bg-[var(--color-gold)] rounded-full flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0" />
                         {detail}
                       </motion.li>
                     ))}
@@ -171,7 +171,7 @@ export default function Process() {
                     duration: 0.8,
                     delay: 0.7 + index * 0.2,
                   }}
-                  className={`hidden md:block absolute top-8 w-8 lg:w-16 h-[1px] bg-[var(--color-gold)] ${
+                  className={`hidden md:block absolute top-8 w-8 lg:w-16 h-px bg-gold ${
                     index % 2 === 0
                       ? "right-1/2 mr-8 origin-right"
                       : "left-1/2 ml-8 origin-left"
@@ -189,7 +189,7 @@ export default function Process() {
           transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mt-20 lg:mt-28"
         >
-          <p className="text-[var(--color-brown-soft)] mb-6">
+          <p className="text-brown-soft mb-6">
             Ready to begin your design journey?
           </p>
           <a href="#contact" className="btn-primary">
