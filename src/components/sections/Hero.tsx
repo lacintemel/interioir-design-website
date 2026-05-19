@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -56,7 +58,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm uppercase tracking-[0.3em] text-cream mb-4"
           >
-            Interior Design Studio
+            {t("hero.subtitle")}
           </motion.p>
 
           {/* Main Heading */}
@@ -66,9 +68,9 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="font-(--font-serif) text-5xl md:text-7xl lg:text-8xl text-cream leading-[0.95] mb-6"
           >
-            Where Elegance
+            {t("hero.title1")}
             <br />
-            <span className="text-gold">Meets Home</span>
+            <span className="text-gold">{t("hero.title2")}</span>
           </motion.h1>
 
           {/* Description */}
@@ -78,8 +80,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg md:text-xl text-beige max-w-xl leading-relaxed mb-10"
           >
-            Transforming spaces into timeless sanctuaries through thoughtful
-            design, refined aesthetics, and an unwavering commitment to quality.
+            {t("hero.description")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -90,7 +91,7 @@ export default function Hero() {
             className="flex flex-wrap gap-4"
           >
             <a href="#portfolio" className="btn-primary">
-              <span>View Portfolio</span>
+              <span>{t("hero.viewPortfolio")}</span>
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -109,7 +110,7 @@ export default function Hero() {
               href="#about"
               className="btn-secondary border-cream/30 text-cream hover:bg-cream hover:text-wood-dark"
             >
-              <span>Our Story</span>
+              <span>{t("hero.ourStory")}</span>
             </a>
           </motion.div>
         </div>
@@ -122,7 +123,7 @@ export default function Hero() {
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         >
           <span className="text-xs uppercase tracking-[0.2em] text-beige">
-            Scroll
+            {t("hero.scroll")}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -140,7 +141,7 @@ export default function Hero() {
         className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block"
       >
         <p className="text-xs uppercase tracking-[0.3em] text-beige transform -rotate-90 whitespace-nowrap">
-          New York — Since 2015
+          {t("hero.sideText")}
         </p>
       </motion.div>
     </section>

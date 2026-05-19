@@ -2,12 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const testimonials = [
   {
     id: 1,
     quote:
-      "Elena transformed our cramped apartment into a spacious sanctuary. Her ability to understand our lifestyle and translate it into design was remarkable. Every detail was considered.",
+      "Melek transformed our cramped apartment into a spacious sanctuary. Her ability to understand our lifestyle and translate it into design was remarkable. Every detail was considered.",
     author: "Sarah & Michael Chen",
     role: "Tribeca Loft Owners",
     image:
@@ -16,7 +17,7 @@ const testimonials = [
   {
     id: 2,
     quote:
-      "Working with Elena Voss was an absolute pleasure. She brings not only exceptional taste but also a deep understanding of architectural spaces. Our hotel lobby has become a destination in itself.",
+      "Working with By Tufan Design was an absolute pleasure. Melek brings not only exceptional taste but also a deep understanding of architectural spaces. Our hotel lobby has become a destination in itself.",
     author: "James Hartwell",
     role: "Director, Nolita Boutique Hotel",
     image:
@@ -25,7 +26,7 @@ const testimonials = [
   {
     id: 3,
     quote:
-      "The attention to detail and the seamless project management exceeded all expectations. Elena's vision elevated our space while maintaining the warmth our family needed.",
+      "The attention to detail and the seamless project management exceeded all expectations. Melek's vision elevated our space while maintaining the warmth our family needed.",
     author: "The Morrison Family",
     role: "Hamptons Estate",
     image:
@@ -34,7 +35,7 @@ const testimonials = [
   {
     id: 4,
     quote:
-      "Elena has an extraordinary gift for balancing aesthetics with functionality. Our office redesign has improved both employee satisfaction and client impressions tenfold.",
+      "Melek has an extraordinary gift for balancing aesthetics with functionality. Our office redesign has improved both employee satisfaction and client impressions tenfold.",
     author: "Victoria Reyes",
     role: "CEO, Reyes Architects",
     image:
@@ -47,6 +48,7 @@ export default function Testimonials() {
   const [direction, setDirection] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   // Auto-advance carousel
   useEffect(() => {
@@ -105,12 +107,12 @@ export default function Testimonials() {
         >
           <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
             <span className="w-12 h-px bg-gold" />
-            Testimonials
+            {t("testimonials.label")}
             <span className="w-12 h-px bg-gold" />
           </span>
 
           <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-cream mb-6">
-            Client Stories
+            {t("testimonials.title")}
           </h2>
         </motion.div>
 
@@ -148,7 +150,7 @@ export default function Testimonials() {
                 <div className="text-center">
                   {/* Quote */}
                   <blockquote className="font-(--font-serif) text-xl md:text-2xl lg:text-3xl text-cream leading-relaxed mb-10 italic">
-                    "{testimonials[currentIndex].quote}"
+                    &ldquo;{testimonials[currentIndex].quote}&rdquo;
                   </blockquote>
 
                   {/* Author */}
