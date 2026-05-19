@@ -7,6 +7,7 @@ import { ProjectDetail } from "@/data/projects";
 import ImageGallery from "@/components/ui/ImageGallery";
 import BeforeAfter from "@/components/ui/BeforeAfter";
 import ProjectNavigation from "@/components/ui/ProjectNavigation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProjectDetailClientProps {
   project: ProjectDetail;
@@ -21,6 +22,7 @@ export default function ProjectDetailClient({
 }: ProjectDetailClientProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
+  const { t } = useLanguage();
 
   // Parallax effect for hero
   const { scrollYProgress } = useScroll({
@@ -64,7 +66,7 @@ export default function ProjectDetailClient({
             href="/#portfolio"
             className="text-xs uppercase tracking-wider text-brown-warm hover:text-gold transition-colors"
           >
-            All Projects
+            {t("projectDetail.allProjects")}
           </Link>
         </div>
       </motion.div>
@@ -131,20 +133,20 @@ export default function ProjectDetailClient({
             >
               <div>
                 <p className="text-xs uppercase tracking-wider text-gold mb-1">
-                  Location
+                  {t("projectDetail.location")}
                 </p>
                 <p className="text-cream">{project.location}</p>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-wider text-gold mb-1">
-                  Year
+                  {t("projectDetail.year")}
                 </p>
                 <p className="text-cream">{project.year}</p>
               </div>
               {project.size && (
                 <div>
                   <p className="text-xs uppercase tracking-wider text-gold mb-1">
-                    Size
+                    {t("projectDetail.size")}
                   </p>
                   <p className="text-cream">{project.size}</p>
                 </div>
@@ -152,7 +154,7 @@ export default function ProjectDetailClient({
               {project.duration && (
                 <div>
                   <p className="text-xs uppercase tracking-wider text-gold mb-1">
-                    Duration
+                    {t("projectDetail.duration")}
                   </p>
                   <p className="text-cream">{project.duration}</p>
                 </div>
@@ -187,7 +189,7 @@ export default function ProjectDetailClient({
             <div className="lg:col-span-2">
               <SectionReveal>
                 <h2 className="font-(--font-serif) text-3xl md:text-4xl text-wood-dark mb-6">
-                  Overview
+                  {t("projectDetail.overview")}
                 </h2>
                 <p className="text-brown-soft leading-relaxed text-lg">
                   {project.description}
@@ -200,54 +202,44 @@ export default function ProjectDetailClient({
               <SectionReveal delay={0.2}>
                 <div className="bg-cream-light p-8 border border-beige">
                   <h3 className="text-xs uppercase tracking-[0.2em] text-taupe mb-6">
-                    Project Details
+                    {t("projectDetail.projectDetails")}
                   </h3>
 
                   <div className="space-y-4">
                     {project.client && (
                       <div>
                         <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                          Client
+                          {t("projectDetail.client")}
                         </p>
-                        <p className="text-wood-dark">
-                          {project.client}
-                        </p>
+                        <p className="text-wood-dark">{project.client}</p>
                       </div>
                     )}
                     <div>
                       <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                        Location
+                        {t("projectDetail.location")}
                       </p>
-                      <p className="text-wood-dark">
-                        {project.location}
-                      </p>
+                      <p className="text-wood-dark">{project.location}</p>
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                        Year
+                        {t("projectDetail.year")}
                       </p>
-                      <p className="text-wood-dark">
-                        {project.year}
-                      </p>
+                      <p className="text-wood-dark">{project.year}</p>
                     </div>
                     {project.size && (
                       <div>
                         <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                          Size
+                          {t("projectDetail.size")}
                         </p>
-                        <p className="text-wood-dark">
-                          {project.size}
-                        </p>
+                        <p className="text-wood-dark">{project.size}</p>
                       </div>
                     )}
                     {project.duration && (
                       <div>
                         <p className="text-xs uppercase tracking-wider text-taupe mb-1">
-                          Duration
+                          {t("projectDetail.duration")}
                         </p>
-                        <p className="text-wood-dark">
-                          {project.duration}
-                        </p>
+                        <p className="text-wood-dark">{project.duration}</p>
                       </div>
                     )}
                   </div>
@@ -255,14 +247,11 @@ export default function ProjectDetailClient({
                   {project.awards && project.awards.length > 0 && (
                     <div className="mt-8 pt-8 border-t border-beige">
                       <h3 className="text-xs uppercase tracking-[0.2em] text-gold mb-4">
-                        Awards
+                        {t("projectDetail.awards")}
                       </h3>
                       <ul className="space-y-2">
                         {project.awards.map((award, index) => (
-                          <li
-                            key={index}
-                            className="text-sm text-brown-soft"
-                          >
+                          <li key={index} className="text-sm text-brown-soft">
                             {award}
                           </li>
                         ))}
@@ -279,7 +268,7 @@ export default function ProjectDetailClient({
             <SectionReveal>
               <div className="relative pl-8 border-l-2 border-gold">
                 <h3 className="font-(--font-serif) text-2xl text-wood-dark mb-4">
-                  The Challenge
+                  {t("projectDetail.challenge")}
                 </h3>
                 <p className="text-brown-soft leading-relaxed">
                   {project.challenge}
@@ -290,7 +279,7 @@ export default function ProjectDetailClient({
             <SectionReveal delay={0.2}>
               <div className="relative pl-8 border-l-2 border-sage">
                 <h3 className="font-(--font-serif) text-2xl text-wood-dark mb-4">
-                  Our Solution
+                  {t("projectDetail.solution")}
                 </h3>
                 <p className="text-brown-soft leading-relaxed">
                   {project.solution}
@@ -308,11 +297,11 @@ export default function ProjectDetailClient({
             <div className="text-center mb-12">
               <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-4">
                 <span className="w-12 h-px bg-gold" />
-                Gallery
+                {t("projectDetail.gallery")}
                 <span className="w-12 h-px bg-gold" />
               </span>
               <h2 className="font-(--font-serif) text-3xl md:text-4xl text-wood-dark">
-                Project Images
+                {t("projectDetail.projectImages")}
               </h2>
             </div>
           </SectionReveal>
@@ -329,7 +318,7 @@ export default function ProjectDetailClient({
             <SectionReveal>
               <div>
                 <h3 className="font-(--font-serif) text-3xl text-wood-dark mb-6">
-                  Design Concept
+                  {t("projectDetail.designConcept")}
                 </h3>
                 <p className="text-brown-soft leading-relaxed mb-8">
                   {project.concept}
@@ -337,7 +326,7 @@ export default function ProjectDetailClient({
 
                 {/* Features */}
                 <h4 className="text-xs uppercase tracking-[0.2em] text-taupe mb-4">
-                  Key Features
+                  {t("projectDetail.keyFeatures")}
                 </h4>
                 <ul className="space-y-3">
                   {project.features.map((feature, index) => (
@@ -350,9 +339,7 @@ export default function ProjectDetailClient({
                       className="flex items-start gap-3"
                     >
                       <span className="w-1.5 h-1.5 bg-gold rounded-full mt-2 shrink-0" />
-                      <span className="text-brown-soft">
-                        {feature}
-                      </span>
+                      <span className="text-brown-soft">{feature}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -363,7 +350,7 @@ export default function ProjectDetailClient({
             <SectionReveal delay={0.2}>
               <div>
                 <h3 className="font-(--font-serif) text-3xl text-wood-dark mb-6">
-                  Material Palette
+                  {t("projectDetail.materialPalette")}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {project.materials.map((material, index) => (
@@ -376,9 +363,7 @@ export default function ProjectDetailClient({
                       className="group relative p-6 bg-cream-light border border-beige hover:border-gold transition-colors duration-300"
                     >
                       <div className="absolute top-0 left-0 w-1 h-0 bg-gold group-hover:h-full transition-all duration-500" />
-                      <span className="text-wood-dark">
-                        {material}
-                      </span>
+                      <span className="text-wood-dark">{material}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -396,11 +381,11 @@ export default function ProjectDetailClient({
               <div className="text-center mb-12">
                 <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-4">
                   <span className="w-12 h-px bg-gold" />
-                  Transformation
+                  {t("projectDetail.transformation")}
                   <span className="w-12 h-px bg-gold" />
                 </span>
                 <h2 className="font-(--font-serif) text-3xl md:text-4xl text-cream">
-                  Before & After
+                  {t("projectDetail.beforeAfter")}
                 </h2>
               </div>
             </SectionReveal>
@@ -428,7 +413,7 @@ export default function ProjectDetailClient({
                 </svg>
 
                 <blockquote className="font-(--font-serif) text-2xl md:text-3xl text-wood-dark leading-relaxed mb-8 italic">
-                  "{project.testimonial.quote}"
+                  &ldquo;{project.testimonial.quote}&rdquo;
                 </blockquote>
 
                 <div>
