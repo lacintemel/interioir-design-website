@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-[var(--color-cream)] text-[var(--color-wood-dark)] antialiased">
+      <body className="min-h-screen bg-cream text-wood-dark antialiased">
         <SmoothScroll>
           <Header />
           <PageTransition>
