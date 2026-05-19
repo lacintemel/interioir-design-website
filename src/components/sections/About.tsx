@@ -2,18 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-
-const stats = [
-  { number: "150+", label: "Projects Completed" },
-  { number: "12", label: "Design Awards" },
-  { number: "8", label: "Years Experience" },
-  { number: "98%", label: "Client Satisfaction" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -21,6 +16,13 @@ export default function About() {
   });
 
   const imageY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+
+  const stats = [
+    { number: "150+", label: t("about.stat1") },
+    { number: "12", label: t("about.stat2") },
+    { number: "8", label: t("about.stat3") },
+    { number: "98%", label: t("about.stat4") },
+  ];
 
   return (
     <section
@@ -46,7 +48,7 @@ export default function About() {
               <motion.div style={{ y: imageY }} className="aspect-4/5">
                 <img
                   src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"
-                  alt="Elena Voss - Interior Designer"
+                  alt="Melek Tufan - Interior Architect"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -92,28 +94,23 @@ export default function About() {
               {/* Label */}
               <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
                 <span className="w-12 h-px bg-gold" />
-                About Us
+                {t("about.label")}
               </span>
 
               {/* Heading */}
               <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6 leading-tight">
-                Crafting Spaces
+                {t("about.title1")}
                 <br />
-                <span className="text-brown-warm">That Inspire</span>
+                <span className="text-brown-warm">{t("about.title2")}</span>
               </h2>
 
               {/* Description */}
               <p className="text-brown-soft leading-relaxed mb-6">
-                With over eight years of experience in luxury interior design, Elena
-                Voss brings a refined sensibility to every project. Our approach
-                blends timeless elegance with contemporary functionality, creating
-                spaces that are both beautiful and livable.
+                {t("about.p1")}
               </p>
 
               <p className="text-brown-soft leading-relaxed mb-8">
-                We believe that exceptional design should feel effortless—each
-                element thoughtfully curated to complement the whole, resulting in
-                interiors that stand the test of time.
+                {t("about.p2")}
               </p>
 
               {/* Signature */}
@@ -126,10 +123,10 @@ export default function About() {
                 />
                 <div>
                   <p className="font-(--font-serif) text-xl text-wood-dark italic">
-                    Elena Voss
+                    {t("about.founderName")}
                   </p>
                   <p className="text-xs uppercase tracking-wider text-taupe">
-                    Founder & Principal Designer
+                    {t("about.founderRole")}
                   </p>
                 </div>
               </div>
