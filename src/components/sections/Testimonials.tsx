@@ -88,7 +88,7 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="section-spacing bg-[var(--color-espresso)] relative overflow-hidden"
+      className="section-spacing bg-espresso relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -103,13 +103,13 @@ export default function Testimonials() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-[var(--color-taupe)] mb-6">
-            <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+          <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
+            <span className="w-12 h-px bg-gold" />
             Testimonials
-            <span className="w-12 h-[1px] bg-[var(--color-gold)]" />
+            <span className="w-12 h-px bg-gold" />
           </span>
 
-          <h2 className="font-[var(--font-serif)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-cream)] mb-6">
+          <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-cream mb-6">
             Client Stories
           </h2>
         </motion.div>
@@ -124,7 +124,7 @@ export default function Testimonials() {
             className="absolute -top-8 -left-4 md:-left-12"
           >
             <svg
-              className="w-24 h-24 md:w-32 md:h-32 text-[var(--color-gold)]"
+              className="w-24 h-24 md:w-32 md:h-32 text-gold"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -147,13 +147,13 @@ export default function Testimonials() {
               >
                 <div className="text-center">
                   {/* Quote */}
-                  <blockquote className="font-[var(--font-serif)] text-xl md:text-2xl lg:text-3xl text-[var(--color-cream)] leading-relaxed mb-10 italic">
+                  <blockquote className="font-(--font-serif) text-xl md:text-2xl lg:text-3xl text-cream leading-relaxed mb-10 italic">
                     "{testimonials[currentIndex].quote}"
                   </blockquote>
 
                   {/* Author */}
                   <div className="flex flex-col items-center gap-4">
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[var(--color-gold)]/30">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-gold/30">
                       <img
                         src={testimonials[currentIndex].image}
                         alt={testimonials[currentIndex].author}
@@ -161,10 +161,10 @@ export default function Testimonials() {
                       />
                     </div>
                     <div>
-                      <p className="text-[var(--color-cream)] font-medium">
+                      <p className="text-cream font-medium">
                         {testimonials[currentIndex].author}
                       </p>
-                      <p className="text-sm text-[var(--color-taupe)]">
+                      <p className="text-sm text-taupe">
                         {testimonials[currentIndex].role}
                       </p>
                     </div>
@@ -179,11 +179,11 @@ export default function Testimonials() {
             {/* Prev Button */}
             <button
               onClick={handlePrev}
-              className="group w-12 h-12 rounded-full border border-[var(--color-taupe)]/30 flex items-center justify-center transition-all duration-300 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10"
+              className="group w-12 h-12 rounded-full border border-taupe/30 flex items-center justify-center transition-all duration-300 hover:border-gold hover:bg-gold/10"
               aria-label="Previous testimonial"
             >
               <svg
-                className="w-5 h-5 text-[var(--color-taupe)] group-hover:text-[var(--color-gold)] transition-colors"
+                className="w-5 h-5 text-taupe group-hover:text-gold transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -212,14 +212,14 @@ export default function Testimonials() {
                   <span
                     className={`block w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "bg-[var(--color-gold)]"
-                        : "bg-[var(--color-taupe)]/30 hover:bg-[var(--color-taupe)]/50"
+                        ? "bg-gold"
+                        : "bg-taupe/30 hover:bg-taupe/50"
                     }`}
                   />
                   {index === currentIndex && (
                     <motion.span
                       layoutId="activeDot"
-                      className="absolute inset-0 w-2 h-2 rounded-full ring-4 ring-[var(--color-gold)]/20"
+                      className="absolute inset-0 w-2 h-2 rounded-full ring-4 ring-gold/20"
                     />
                   )}
                 </button>
@@ -229,11 +229,11 @@ export default function Testimonials() {
             {/* Next Button */}
             <button
               onClick={handleNext}
-              className="group w-12 h-12 rounded-full border border-[var(--color-taupe)]/30 flex items-center justify-center transition-all duration-300 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10"
+              className="group w-12 h-12 rounded-full border border-taupe/30 flex items-center justify-center transition-all duration-300 hover:border-gold hover:bg-gold/10"
               aria-label="Next testimonial"
             >
               <svg
-                className="w-5 h-5 text-[var(--color-taupe)] group-hover:text-[var(--color-gold)] transition-colors"
+                className="w-5 h-5 text-taupe group-hover:text-gold transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -255,7 +255,7 @@ export default function Testimonials() {
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
         transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-gold)]/30 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"
       />
     </section>
   );
