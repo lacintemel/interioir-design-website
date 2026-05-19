@@ -34,7 +34,7 @@ export default function Header() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
-            ? "bg-[var(--color-cream)]/95 backdrop-blur-md shadow-[var(--shadow-soft)]"
+            ? "bg-cream/95 backdrop-blur-md shadow-(--shadow-soft)"
             : "bg-transparent"
         }`}
       >
@@ -46,10 +46,10 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="flex flex-col"
             >
-              <span className="font-[var(--font-serif)] text-2xl lg:text-3xl tracking-wide text-[var(--color-wood-dark)]">
+              <span className="font-(--font-serif) text-2xl lg:text-3xl tracking-wide text-wood-dark">
                 Elena Voss
               </span>
-              <span className="text-[10px] tracking-[0.3em] uppercase text-[var(--color-taupe)]">
+              <span className="text-[10px] tracking-[0.3em] uppercase text-taupe">
                 Interior Design
               </span>
             </motion.div>
@@ -70,7 +70,7 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className="relative text-sm tracking-wide text-[var(--color-brown-warm)] hover:text-[var(--color-wood-dark)] transition-colors duration-300 underline-hover"
+                  className="relative text-sm tracking-wide text-brown-warm hover:text-wood-dark transition-colors duration-300 underline-hover"
                 >
                   {item.name}
                 </Link>
@@ -104,18 +104,18 @@ export default function Header() {
                 rotate: isMobileMenuOpen ? 45 : 0,
                 y: isMobileMenuOpen ? 6 : 0,
               }}
-              className="w-6 h-[1.5px] bg-[var(--color-wood-dark)] block origin-center"
+              className="w-6 h-[1.5px] bg-wood-dark block origin-center"
             />
             <motion.span
               animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-              className="w-6 h-[1.5px] bg-[var(--color-wood-dark)] block"
+              className="w-6 h-[1.5px] bg-wood-dark block"
             />
             <motion.span
               animate={{
                 rotate: isMobileMenuOpen ? -45 : 0,
                 y: isMobileMenuOpen ? -6 : 0,
               }}
-              className="w-6 h-[1.5px] bg-[var(--color-wood-dark)] block origin-center"
+              className="w-6 h-[1.5px] bg-wood-dark block origin-center"
             />
           </button>
         </nav>
@@ -135,7 +135,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-[var(--color-wood-dark)]/20 backdrop-blur-sm"
+              className="absolute inset-0 bg-wood-dark/20 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.nav
@@ -143,7 +143,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-0 right-0 bottom-0 w-[80%] max-w-sm bg-[var(--color-cream)] shadow-[var(--shadow-elevated)]"
+              className="absolute top-0 right-0 bottom-0 w-[80%] max-w-sm bg-cream shadow-(--shadow-elevated)"
             >
               <div className="flex flex-col justify-center h-full px-10">
                 <ul className="space-y-6">
@@ -161,7 +161,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="font-[var(--font-serif)] text-3xl text-[var(--color-wood-dark)] hover:text-[var(--color-gold)] transition-colors duration-300"
+                        className="font-(--font-serif) text-3xl text-wood-dark hover:text-gold transition-colors duration-300"
                       >
                         {item.name}
                       </Link>
