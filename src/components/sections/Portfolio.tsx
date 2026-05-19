@@ -4,25 +4,26 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/data/projects";
-
-// Map projects for display with size information
-const displayProjects = projects.map((project, index) => ({
-  ...project,
-  size: index === 0 || index === 5 ? "large" : index === 3 || index === 4 ? "medium" : "small",
-}));
-
-const categories = ["All", "Residential", "Commercial", "Hospitality"];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Portfolio() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
+  const categories = [
+    { key: "All", label: t("portfolio.all") },
+    { key: "Residential", label: t("portfolio.residential") },
+    { key: "Commercial", label: t("portfolio.commercial") },
+    { key: "Hospitality", label: t("portfolio.hospitality") },
+  ];
+
   const filteredProjects =
     activeCategory === "All"
-      ? displayProjects
-      : displayProjects.filter((project) => project.category === activeCategory);
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <section
@@ -40,17 +41,16 @@ export default function Portfolio() {
         >
           <span className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-taupe mb-6">
             <span className="w-12 h-px bg-gold" />
-            Portfolio
+            {t("portfolio.label")}
             <span className="w-12 h-px bg-gold" />
           </span>
 
           <h2 className="font-(--font-serif) text-4xl md:text-5xl lg:text-6xl text-wood-dark mb-6">
-            Selected Works
+            {t("portfolio.title")}
           </h2>
 
           <p className="text-brown-soft max-w-2xl mx-auto">
-            A curated collection of our most distinguished projects, showcasing our
-            commitment to exceptional design and meticulous craftsmanship.
+            {t("portfolio.description")}
           </p>
         </motion.div>
 
@@ -63,16 +63,16 @@ export default function Portfolio() {
         >
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
+              key={category.key}
+              onClick={() => setActiveCategory(category.key)}
               className={`relative px-4 py-2 text-sm tracking-wide transition-colors duration-300 ${
-                activeCategory === category
+                activeCategory === category.key
                   ? "text-wood-dark"
                   : "text-taupe hover:text-brown-warm"
               }`}
             >
-              {category}
-              {activeCategory === category && (
+              {category.label}
+              {activeCategory === category.key && (
                 <motion.div
                   layoutId="activeFilter"
                   className="absolute bottom-0 left-0 right-0 h-px bg-gold"
@@ -83,36 +83,31 @@ export default function Portfolio() {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid - Improved consistent layout */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.article
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
+                  duration: 0.5,
+                  delay: index * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`group relative ${
-                  project.size === "large"
-                    ? "md:col-span-2 md:row-span-2"
-                    : project.size === "medium"
-                    ? "md:col-span-1 md:row-span-2"
-                    : ""
-                }`}
+                className="group relative"
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 <Link href={`/projects/${project.slug}`} className="block">
-                  <div className="relative overflow-hidden aspect-4/5">
+                  {/* Image container with consistent aspect ratio */}
+                  <div className="relative overflow-hidden aspect-[3/4]">
                     {/* Image */}
                     <motion.img
                       src={project.thumbnailImage}
@@ -128,9 +123,9 @@ export default function Portfolio() {
                     {/* Overlay */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/20 to-transparent"
-                      initial={{ opacity: 0.5 }}
+                      initial={{ opacity: 0.4 }}
                       animate={{
-                        opacity: hoveredProject === project.id ? 0.9 : 0.5,
+                        opacity: hoveredProject === project.id ? 0.85 : 0.4,
                       }}
                       transition={{ duration: 0.5 }}
                     />
@@ -139,10 +134,8 @@ export default function Portfolio() {
                     <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
                       {/* Category */}
                       <motion.span
-                        initial={{ opacity: 0, y: 10 }}
                         animate={{
                           opacity: hoveredProject === project.id ? 1 : 0.7,
-                          y: 0,
                         }}
                         className="text-xs uppercase tracking-[0.2em] text-gold mb-2"
                       >
@@ -151,9 +144,9 @@ export default function Portfolio() {
 
                       {/* Title */}
                       <motion.h3
-                        className="font-(--font-serif) text-2xl md:text-3xl text-cream mb-2"
+                        className="font-(--font-serif) text-xl md:text-2xl text-cream mb-2"
                         animate={{
-                          y: hoveredProject === project.id ? 0 : 10,
+                          y: hoveredProject === project.id ? 0 : 5,
                         }}
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       >
@@ -162,29 +155,29 @@ export default function Portfolio() {
 
                       {/* Description - shows on hover */}
                       <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{
                           opacity: hoveredProject === project.id ? 1 : 0,
-                          y: hoveredProject === project.id ? 0 : 20,
+                          y: hoveredProject === project.id ? 0 : 15,
                         }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-beige text-sm mb-4"
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-beige text-sm mb-4 line-clamp-2"
                       >
                         {project.tagline}
                       </motion.p>
 
                       {/* View Project Link */}
                       <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -15 }}
                         animate={{
                           opacity: hoveredProject === project.id ? 1 : 0,
-                          x: hoveredProject === project.id ? 0 : -20,
+                          x: hoveredProject === project.id ? 0 : -15,
                         }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="flex items-center gap-2 text-cream"
                       >
                         <span className="text-xs uppercase tracking-wider">
-                          View Project
+                          {t("portfolio.viewProject")}
                         </span>
                         <svg
                           className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
@@ -256,7 +249,7 @@ export default function Portfolio() {
           className="text-center mt-16"
         >
           <Link href="/projects" className="btn-secondary inline-flex">
-            <span>View All Projects</span>
+            <span>{t("portfolio.viewAll")}</span>
             <svg
               className="w-4 h-4"
               fill="none"
