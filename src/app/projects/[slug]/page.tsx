@@ -24,15 +24,15 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | Elena Voss Interior Design",
+      title: "Project Not Found | By Tufan Design",
     };
   }
 
   return {
-    title: `${project.title} | Elena Voss Interior Design`,
+    title: `${project.title} | By Tufan Design`,
     description: project.tagline,
     openGraph: {
-      title: `${project.title} | Elena Voss Interior Design`,
+      title: `${project.title} | By Tufan Design`,
       description: project.tagline,
       images: [project.heroImage],
     },
